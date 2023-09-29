@@ -1,0 +1,299 @@
+/* 
+-Jennifer Elie
+Assignment 3
+-9/19/2023
+-
+-todo 
+-add more to the home page
+-learn about and implement accessible font sizes
+
+-font-family: 'Roboto', sans-serif;
+-font-family: 'Roboto Serif', serif;
+-font-family: 'Roboto Slab', serif;
+*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+:root {
+    --darkTeal: #2f4f4f;
+    --darkTealShadow: #253d3d;
+    --lightGreen:  #699d85;
+    --white: #fafafa;
+    --black: #202124;
+    --trueBlack: #000000;
+    --gray: #404040;
+    --lightGray: #cccccc;
+    --noteBackground:#f8f8f8;
+  }
+
+body {
+    background-color: var(--darkTeal);
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: var(--black);
+}
+
+.main {
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* header and nav */
+nav {
+    background-color: var(--white);
+    min-height: 30px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 5px 5px 5px var(--darkTealShadow);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+.spacer{
+    min-width: 152px;
+}
+
+/* logo and productName link in nav */
+.logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    height: 50px;
+    padding: 0;
+    color: var(--black);
+    margin-left: 8px;
+}
+
+.imgLogoContainer {
+    flex-basis: 40%
+}
+
+.imgLogo {
+    height: 50px;
+    width: auto;
+}
+
+.productNameContainer {
+    font-size: large;
+    font-weight: 600;
+}
+
+.productName {
+    display: inline;
+    text-align: center;
+    text-decoration: none;
+    padding-left: .5vw;
+    padding-right: .5vw;
+    min-width: 3.8vw;
+}
+
+/* -------------------------------- */
+
+/* nav links */
+.navLink {
+    text-align: center;
+    text-decoration: none;
+    padding-left: .5vw;
+    padding-right: .5vw;
+    padding-top: 15px;
+    color: var(--black);
+}
+
+.navLink:hover {
+    color: var(--trueBlack);
+    border-bottom: 2px solid var(--gray);
+    text-shadow: 0px 0px 1px var(--lightGray)
+}
+
+.currentPage {
+    color: var(--trueBlack);
+    border-bottom: 2px solid var(--gray);
+}
+
+/* -------------------------------- */
+
+/* forms */
+.formContainer {
+    margin: auto;
+    height: 75vh;
+    min-height: 401px;
+    max-width: 1077px;
+    display: flex;
+    border-radius: 2.3vh;
+    box-shadow: 5px 5px 5px var(--darkTealShadow);
+}
+
+.input,
+.formHeading {
+    padding-left: 2vw;
+    margin-top: 2vh;
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+    background-color: var(--white);
+    border: none;
+    border-bottom: 2px solid var(--gray);
+    padding-bottom: 1vh;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus {
+    outline: none;
+    border-bottom: 2px solid var(--lightGreen);
+    box-shadow: 0px 1px 0px var(--lightGreen);
+}
+
+.submitForm,
+.haveAcc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.haveAccLink {
+    color: var(--gray);
+    margin-top: 1vh;
+}
+
+.submitButton {
+    border: 2px solid var(--darkTeal);
+    background-color: var(--lightGreen);
+    cursor: pointer;
+    border-radius: 2.3vh;
+    padding: 10px;
+    width: 55%;
+    max-width: 250px;
+    color: var(--black);
+    font-weight: 700;
+    margin-top: 3vh;
+}
+.submitButton:hover{
+    box-shadow: 1px 1px 0px var(--lightGray);
+    color: var(--trueBlack);
+}
+
+/* register */
+.leftRegister, .leftLogin{
+    width: 25vw;
+    min-width: max-content;
+    background-position: center;
+    background-size: cover;
+    background-color: var(--white);
+    min-width: min-content;
+    border-top-left-radius: 2.3vh;
+    border-bottom-left-radius: 2.3vh;
+}
+.leftRegister{
+    background-image: url("../Images/journal\ justin-morgan.jpg");
+}
+
+.rightRegister {
+    width: 25vw;
+    background-color: var(--white);
+    overflow: auto;
+    min-width: min-content;
+    border-top-right-radius: 2.3vh;
+    border-bottom-right-radius: 2.3vh;
+    min-height: min-content;
+}
+
+/* *************** */
+/* login */
+.leftLogin {
+    background-image: url("../Images/journal\ diana-polekhina.jpg");
+}
+
+.rightLogin {
+    width: 25vw;
+    background-color: var(--white);
+    overflow: auto;
+    min-width: min-content;
+    border-top-right-radius: 2.3vh;
+    border-bottom-right-radius: 2.3vh;
+    min-height: min-content;
+}
+
+
+
+.homeBody {
+    background-image: url('/Images/home.png');
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    background-color: var(--white);
+}
+
+.WelcomeContainer {
+    margin: auto;
+    height: 75vh;
+    width: 70vw;
+    display: flex;
+    border-radius: 2.3vh;
+    box-shadow: 5px 5px 5px var(--darkTealShadow);
+    background-color: var(--white);
+    display: inline;
+}
+
+.Welcome,
+.newNoteHeading {
+    text-align: center;
+    padding-top: 2vh;
+    padding-bottom: 1vh;
+}
+
+.WelcomeMSG {
+    padding-left: 4vw;
+    padding-right: 4vw;
+    font-family: 'Roboto Slab', serif;
+}
+
+.noteContainer {
+    margin: auto;
+    height: 75vh;
+    width: 70vw;
+    display: flex;
+    border-radius: 2.3vh;
+    box-shadow: 5px 5px 5px var(--darkTealShadow);
+    background-color: var(--white);
+    display: inline;
+}
+
+.textareaContainer {
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    width: 98%;
+    height: 50vh;
+    box-sizing: border-box;
+    border: 2px solid var(--lightGray);
+    border-radius: 1.3vh;
+    background-color: var(--noteBackground);
+    resize: none;
+    padding: 1.5vh 2vh;
+}
+
+textarea:active,
+textarea:focus {
+    box-sizing: border-box;
+    outline-color: var(--lightGreen);
+    resize: none;
+}
