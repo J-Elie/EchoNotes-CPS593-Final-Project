@@ -8,4 +8,4 @@ This project will utilize HTML, CSS, MySQL, Axios, Node.js, Express.js, and Java
 ###Business Rules, ERD, and Relations
 
 
-![Picture of Business Rules, ERD, and Relations](./Business Rules, ERD, and Relational Model.png)
+![Picture of Business Rules, ERD, and Relations](/Business Rules, ERD, and Relational Model.png)
