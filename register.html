@@ -28,7 +28,7 @@
             <div>
                 <a href="home.html" class="logoContainer logoNavLink">
                     <div class="imgLogoContainer">
-                        <img src="Images/Green Logo.png" alt="Echo note logo" class="imgLogo">
+                        <img src="Images/Green Logo.png" alt="EchoNotes logo" class="imgLogo">
                     </div>
                     <div class="productNameContainer">
                         <p class="productName">EchoNotes</p>
@@ -51,59 +51,84 @@
     <main class="main">
         <div class="formContainer">
             <div class="leftRegister"></div>
-            <div class="rightRegister">
-                <form class="registerForm">
+            <div class="rightRegister" id="rightRegister">
+                <form class="registerForm" id="registerForm" autocomplete="on">
                     <h2 class="formHeading">Register</h2>
                     <!-- First name label and input -->
                     <div class="input">
                         <label for="fname">First Name:</label>
                         <br>
-                        <input type="text" name="fname" id="fname">
+                        <input 
+                            type="text" 
+                            name="fname" 
+                            id="fname" 
+                            required
+                        >
                     </div>
 
                     <!-- Last name label and input -->
                     <div class="input">
                         <label for="lname">Last Name:</label>
                         <br>
-                        <input type="text" name="lname" id="lname">
+                        <input 
+                            type="text" 
+                            name="lname" 
+                            id="lname" 
+                            required
+                        >
                     </div>
                     <!-- Email label and input -->
                     <div class="input">
                         <label for="email">Email:</label>
                         <br>
-                        <input type="email" name="email" id="email">
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            required
+                        >
                     </div>
                     <!-- Password label and input -->
                     <div class="input">
-                        <label for="pw">Password:</label>
+                        <label for="password">Password:</label>
                         <br>
-                        <input type="password" name="pw" id="pw">
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            required
+                        >
                     </div>
-
-                    <!-- confirm password later label and input -->
+                    <!-- confirm password label and input -->
                     <div class="input">
-                        <label for="pwConfirm">Confirm Password:</label>
+                        <label for="confirmPassword">Confirm Password:</label>
                         <br>
-                        <input type="password" name="pwConfirm" id="pwConfirm">
+                        <input 
+                            type="password" 
+                            name="confirmPassword" 
+                            id="confirmPassword" 
+                            required onkeyup="validatePassword()"
+                        >
+                        <span id="passwordAlert"></span>
                     </div>
-
-
+                    <!--submit button and link to other form -->
                     <div class="submitForm">
-                        <input type="submit" value="Submit" class="submitButton">
+                        <input 
+                            type="submit" 
+                            value="Submit" 
+                            class="submitButton" 
+                            id="submitButton"
+                        >
                     </div>
                     <div class="haveAcc">
                         <a href="login.html" class="haveAccLink">Already have an account?</a>
                     </div>
-
                 </form>
-
             </div>
         </div>
     </main>
-
     <footer>
-
     </footer>
+    <script src="main.js"></script>
 </body>
-
 </html>

@@ -171,6 +171,9 @@ input[type=password]:focus {
     color: var(--gray);
     margin-top: 1vh;
 }
+.haveAccLink:hover{
+    color: var(--black);
+}
 
 .submitButton {
     border: 2px solid var(--darkTeal);
