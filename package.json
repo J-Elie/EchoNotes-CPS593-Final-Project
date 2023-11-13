@@ -1,0 +1,21 @@
+{
+  "name": "echo-notes",
+  "version": "1.0.0",
+  "description": "Note-taking application created as my final project for Web and Database Programming",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "note"
+  ],
+  "author": "Jennifer Elie",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

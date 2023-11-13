@@ -12,7 +12,7 @@ function register(e) {
     let rightRegister = document.getElementById("rightRegister")
     rightRegister.innerHTML = 
     `<div><h2>Welcome to EchoNotes
-     ${fname} ${lname} ${email}
+     ${fname} ${lname}
      </h2></div>`
 }
 

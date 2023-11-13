@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Login</title>
     <link rel="stylesheet" href="Styles/style.css">
     <link rel="icon" type="image/x-icon" href="Images/Green Logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,9 +39,9 @@
                 <!-- home link -->
                 <a href="home.html" class="navLink">Home</a>
                 <!-- register link -->
-                <a href="#" class="currentPage navLink">Register</a>
+                <a href="register.html" class="navLink">Register</a>
                 <!-- login link -->
-                <a href="login.html" class="navLink">Login</a>
+                <a href="#" class="navLink currentPage">Login</a>
                 <!-- note link. This should not appear until a user is logged in. For easy navigation it is visible for now.-->
                 <a href="note.html" class="navLink">Note</a>
             </div>
@@ -50,33 +50,10 @@
     </header>
     <main class="main">
         <div class="formContainer">
-            <div class="leftRegister"></div>
-            <div class="rightRegister" id="rightRegister">
-                <form class="registerForm" id="registerForm" autocomplete="on">
-                    <h2 class="formHeading">Register</h2>
-                    <!-- First name label and input -->
-                    <div class="input">
-                        <label for="fname">First Name:</label>
-                        <br>
-                        <input 
-                            type="text" 
-                            name="fname" 
-                            id="fname" 
-                            required
-                        >
-                    </div>
-
-                    <!-- Last name label and input -->
-                    <div class="input">
-                        <label for="lname">Last Name:</label>
-                        <br>
-                        <input 
-                            type="text" 
-                            name="lname" 
-                            id="lname" 
-                            required
-                        >
-                    </div>
+            <div class="leftLogin"></div>
+            <div class="rightLogin">
+                <form class="loginForm">
+                    <h2 class="formHeading">Login</h2>
                     <!-- Email label and input -->
                     <div class="input">
                         <label for="email">Email:</label>
@@ -84,51 +61,38 @@
                         <input 
                             type="email" 
                             name="email" 
-                            id="email" 
-                            required
+                            id="email"
                         >
                     </div>
                     <!-- Password label and input -->
                     <div class="input">
-                        <label for="password">Password:</label>
+                        <label for="pw">Password:</label>
                         <br>
                         <input 
                             type="password" 
                             name="password" 
-                            id="password" 
-                            required
+                            id="password"
                         >
-                    </div>
-                    <!-- confirm password label and input -->
-                    <div class="input">
-                        <label for="confirmPassword">Confirm Password:</label>
-                        <br>
-                        <input 
-                            type="password" 
-                            name="confirmPassword" 
-                            id="confirmPassword" 
-                            required onkeyup="validatePassword()"
-                        >
-                        <span id="passwordAlert"></span>
                     </div>
                     <!--submit button and link to other form -->
-                    <div class="submitForm">
-                        <input 
-                            type="submit" 
-                            value="Submit" 
-                            class="submitButton" 
-                            id="submitButton"
-                        >
+                    <div class="bot">
+                        <div class="submitForm">
+                            <input 
+                                type="submit" 
+                                value="Submit" 
+                                class="submitButton"
+                            >
+                        </div>
+                        <div class="haveAcc">
+                            <a href="register.html" class="haveAccLink">Don't have an account yet?</a>
+                        </div>
                     </div>
-                    <div class="haveAcc">
-                        <a href="login.html" class="haveAccLink">Already have an account?</a>
-                    </div>
+
                 </form>
             </div>
         </div>
     </main>
     <footer>
     </footer>
-    <script src="main.js"></script>
 </body>
 </html>

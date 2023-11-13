@@ -215,6 +215,7 @@ input[type=password]:focus {
     border-top-right-radius: 2.3vh;
     border-bottom-right-radius: 2.3vh;
     min-height: min-content;
+
 }
 
 /* *************** */
@@ -231,6 +232,9 @@ input[type=password]:focus {
     border-top-right-radius: 2.3vh;
     border-bottom-right-radius: 2.3vh;
     min-height: min-content;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
 }
 
 
