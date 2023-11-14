@@ -1,21 +1,39 @@
 let registerForm = document.getElementById("registerForm")
-registerForm.addEventListener('submit', register)
+registerForm?.addEventListener('submit', register)
+
+let loginForm = document.getElementById("loginForm")
+loginForm?.addEventListener('submit', login)
 
 function register(e) {
     e.preventDefault();
-    let fname = document.getElementById("fname").value
-    let lname = document.getElementById("lname").value
-    let email = document.getElementById("email").value
-    let password = document.getElementById("password").value
-    let confirmPassword = document.getElementById("confirmPassword").value
-    
-    let rightRegister = document.getElementById("rightRegister")
-    rightRegister.innerHTML = 
-    `<div><h2>Welcome to EchoNotes
-     ${fname} ${lname}
-     </h2></div>`
+    let user = {
+        fname: document.getElementById("fname").value,
+        lname: document.getElementById("lname").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        confirmPassword: document.getElementById("confirmPassword").value
+      }
+    console.log(user.fname, user.lname, user.email, user.password, user.confirmPassword)
+    // let rightRegister = document.getElementById("rightRegister")
+    // rightRegister.innerHTML = 
+    // `<div><h2>Welcome to EchoNotes
+    //  ${fname} ${lname}
+    //  </h2></div>`
 }
 
+function login(e) {
+    e.preventDefault();
+    let user = {
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+      }
+    console.log(user.email, user.password)
+}
+
+
+
+
+// form validation 
 function validatePassword() {
  
     var password = document.getElementById('password').value;

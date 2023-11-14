@@ -240,7 +240,7 @@ input[type=password]:focus {
 
 
 .homeBody {
-    background-image: url('/Images/home.png');
+    background-image: url('/public/Images/home.png');
     background-size: cover;
     background-position: center;
     background-size: cover;
