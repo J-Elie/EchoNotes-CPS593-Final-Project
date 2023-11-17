@@ -1,22 +1,19 @@
-/* 
--Jennifer Elie
-Assignment 3
--9/19/2023
--
--todo 
--add more to the home page
--learn about and implement accessible font sizes
+/*************************************************
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
--font-family: 'Roboto', sans-serif;
--font-family: 'Roboto Serif', serif;
--font-family: 'Roboto Slab', serif;
-*/
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-:root {
+Author: Jennifer Elie
+application: EchoNotes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+**************************************************
+
+Todo
+***************
+    -add more to the home page
+    -learn about and implement accessible font sizes
+
+Colors
+***************
     --darkTeal: #2f4f4f;
     --darkTealShadow: #253d3d;
     --lightGreen:  #699d85;
@@ -26,106 +23,139 @@ Assignment 3
     --gray: #404040;
     --lightGray: #cccccc;
     --noteBackground:#f8f8f8;
-  }
+
+Fonts
+***************
+    -font-family: 'Roboto', sans-serif;
+    -font-family: 'Roboto Serif', serif;
+    -font-family: 'Roboto Slab', serif;
+
+TOC
+***************
+0. CSS Universal Reset
+1. CSS Variables
+2. Nav Styles
+3. Main Styles
+4. Form Styles
+5. Button Styles
+6. Register Page
+7. Login Page
+8. Home Page
+9. Note Page
+10. Profile Page
+11. Footer Styles
+*************************************************/
+
+/*----------------------------------------------
+0. CSS Universal Reset
+------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/*----------------------------------------------
+  1.CSS Variables
+------------------------------------------------*/
+:root {
+    --darkTeal: #2f4f4f;
+    --darkTealShadow: #253d3d;
+    --lightGreen: #699d85;
+    --white: #fafafa;
+    --black: #202124;
+    --trueBlack: #000000;
+    --gray: #404040;
+    --lightGray: #cccccc;
+    --noteBackground: #f8f8f8;
+
+    --navHeight:50px;
+}
 
 body {
-    background-color: var(--darkTeal);
-    margin: 0;
+    height: 100vh;
     display: flex;
     flex-flow: column;
-    height: 100vh;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: var(--black);
+    background-color: var(--darkTeal);
 }
 
-.main {
-    height: 92vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* header and nav */
-nav {
+/*----------------------------------------------
+  2. Nav Styles
+------------------------------------------------*/
+  .nav {
     background-color: var(--white);
-    min-height: 30px;
-    height: 50px;
+    height: var(--navHeight);
     display: flex;
     justify-content: space-between;
     box-shadow: 5px 5px 5px var(--darkTealShadow);
 }
 
-.nav {
-    display: flex;
-    justify-content: space-between;
-}
-.spacer{
-    min-width: 152px;
-}
-
-/* logo and productName link in nav */
-.logoContainer {
+.logoNavLink {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     text-decoration: none;
-    height: 50px;
+    height: var(--navHeight);
     padding: 0;
     color: var(--black);
     margin-left: 8px;
 }
-
-.imgLogoContainer {
-    flex-basis: 40%
+.logoNavLink img {
+    height: var(--navHeight);
+    width: 145px;
 }
 
-.imgLogo {
-    height: 50px;
-    width: auto;
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    height: var(--navHeight);
 }
 
-.productNameContainer {
-    font-size: large;
-    font-weight: 600;
-}
-
-.productName {
-    display: inline;
-    text-align: center;
-    text-decoration: none;
-    padding-left: .5vw;
-    padding-right: .5vw;
-    min-width: 3.8vw;
-}
-
-/* -------------------------------- */
-
-/* nav links */
 .navLink {
-    text-align: center;
+    display: block;
+    height: var(--navHeight);
     text-decoration: none;
     padding-left: .5vw;
     padding-right: .5vw;
     padding-top: 15px;
     color: var(--black);
 }
-
 .navLink:hover {
     color: var(--trueBlack);
-    border-bottom: 2px solid var(--gray);
+    border-bottom: 3px solid var(--gray);
+    text-shadow: 0px 1px 0px var(--lightGray);
     text-shadow: 0px 0px 1px var(--lightGray)
 }
 
 .currentPage {
     color: var(--trueBlack);
-    border-bottom: 2px solid var(--gray);
+    text-shadow: 0px 1px 0px var(--lightGray);
+    border-bottom: 3px solid var(--lightGreen);
 }
 
-/* -------------------------------- */
+.navSpacer {
+    min-width: 145px;
+}
 
-/* forms */
+/*----------------------------------------------
+  3. Main Styles
+------------------------------------------------*/
+.main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*----------------------------------------------
+  4. Form Styles
+------------------------------------------------*/
 .formContainer {
     margin: auto;
     height: 75vh;
@@ -167,15 +197,33 @@ input[type=password]:focus {
     width: 100%;
 }
 
+.formBottom{
+    flex: 1;
+    min-width: max-content;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    /* background-color: aqua; */
+}
+.loginForm, .registerForm, .noteForm{
+    height: 75vh;
+    display: flex;
+    flex-flow: column;
+}
+
 .haveAccLink {
     color: var(--gray);
     margin-top: 1vh;
 }
-.haveAccLink:hover{
+
+.haveAccLink:hover {
     color: var(--black);
 }
 
-.submitButton {
+/*----------------------------------------------
+  5. Button Styles
+------------------------------------------------*/
+  .submitButton {
     border: 2px solid var(--darkTeal);
     background-color: var(--lightGreen);
     cursor: pointer;
@@ -185,15 +233,17 @@ input[type=password]:focus {
     max-width: 250px;
     color: var(--black);
     font-weight: 700;
-    margin-top: 3vh;
 }
-.submitButton:hover{
+  .submitButton:hover {
     box-shadow: 1px 1px 0px var(--lightGray);
     color: var(--trueBlack);
 }
 
-/* register */
-.leftRegister, .leftLogin{
+/*----------------------------------------------
+  6. Register Page 
+------------------------------------------------*/
+.leftRegister,
+.leftLogin {
     width: 25vw;
     min-width: max-content;
     background-position: center;
@@ -203,7 +253,8 @@ input[type=password]:focus {
     border-top-left-radius: 2.3vh;
     border-bottom-left-radius: 2.3vh;
 }
-.leftRegister{
+
+.leftRegister {
     background-image: url("../Images/journal\ justin-morgan.jpg");
 }
 
@@ -218,8 +269,9 @@ input[type=password]:focus {
 
 }
 
-/* *************** */
-/* login */
+/*----------------------------------------------
+  7. Login Page
+------------------------------------------------*/
 .leftLogin {
     background-image: url("../Images/journal\ diana-polekhina.jpg");
 }
@@ -238,7 +290,9 @@ input[type=password]:focus {
 }
 
 
-
+/*----------------------------------------------
+  8. Home Page
+------------------------------------------------*/
 .homeBody {
     background-image: url('/public/Images/home.png');
     background-size: cover;
@@ -271,6 +325,9 @@ input[type=password]:focus {
     font-family: 'Roboto Slab', serif;
 }
 
+/*----------------------------------------------
+  9. Note Page
+------------------------------------------------*/
 .noteContainer {
     margin: auto;
     height: 75vh;
@@ -304,3 +361,22 @@ textarea:focus {
     outline-color: var(--lightGreen);
     resize: none;
 }
+.noteNav{
+    /* height: 100%; 
+    width: 0;  */
+    
+    /*Stays in place */ 
+    background-color: green; 
+    /*green*/ 
+    overflow-x: hidden; 
+    /*for Disabling horizontal scroll */ 
+    background-color: aqua;
+}
+
+/*----------------------------------------------
+  10. Profile Page
+------------------------------------------------*/
+
+/*----------------------------------------------
+  11. Footer Styles
+------------------------------------------------*/

@@ -1,11 +1,11 @@
 const express = require("express")
-const User = require("../models/user")
+const Note = require("../models/note")
 const router = express.Router()
 
 router.get('/', (req, res) => {
   try {
-    const users = User.getUsers();
-    res.send(users)
+    const notes = Note.getNotes();
+    res.send(notes)
   } catch(err) {
     res.status(401).send({message: err.message})
   }

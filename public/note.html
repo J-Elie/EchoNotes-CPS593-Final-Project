@@ -23,37 +23,34 @@
 
 <body>
     <header>
-        <nav>
-            <!-- logo and name link -->
-            <div>
-                <a href="home.html" class="logoContainer logoNavLink">
-                    <div class="imgLogoContainer">
-                        <img src="Images/Green Logo.png" alt="EchoNotes logo" class="imgLogo">
-                    </div>
-                    <div class="productNameContainer">
-                        <p class="productName">EchoNotes</p>
-                    </div>
-                </a>
-            </div>
-            <div class="nav">
-                <!-- home link -->
-                <a href="home.html" class="navLink">Home</a>
-                <!-- register link -->
-                <a href="register.html" class="navLink">Register</a>
-                <!-- login link -->
-                <a href="login.html" class="navLink">Login</a>
-                <!-- note link. This should not appear until a user is logged in. For easy navigation it is visible for now.-->
-                <a href="#" class="navLink currentPage">Note</a>
-            </div>
-            <div class="spacer"></div>
+        <nav class="nav">
+            <a href="home.html" class="logoNavLink">
+                <img src="Images/Green Logo With Title.png" alt="EchoNotes logo" class="logoHomeImg">
+            </a>
+            <ul>
+                <li><a href="home.html" class="navLink">Home</a></li>
+                <li><a href="register.html" class="navLink">Register</a></li>
+                <li><a href="login.html" class="navLink">Login</a></li>
+                <li><a href="note.html" class="navLink currentPage">Note</a></li>
+            </ul>
+            <div class="navSpacer"></div>
         </nav>
     </header>
     <main class="main">
+        <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+        <nav class="noteNav">
+            <ul id="noteUL">
+                <li>hello</li>
+                <li>hi</li>
+                <li>bye</li>
+            </ul>
+        </nav>
+        <!-- <button class="navButton" onclick="openNav()">☰</button>   -->
+        <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
         <div class="noteContainer">
-
             <div>
                 <form class="noteForm" id="noteForm">
-                    <h2 class="newNoteHeading">New note</h2>
+                    <h2 class="newNoteHeading" id="titleHeading">New note</h2>
                     <div class="input">
                         <label for="title">Title:</label>
                         <input 
@@ -61,7 +58,7 @@
                             name="title" 
                             id="title" 
                             placeholder="Enter title"
-                        >
+                            onkeyup="updateTitle()">
                     </div>
                     <div class="textareaContainer">
                         <textarea 
@@ -69,15 +66,15 @@
                             rows="4" 
                             cols="50"
                             id="textarea"
-                            placeholder="Start writing your note here...">
-                        </textarea>
+                            placeholder="Start writing your note here..."></textarea>
                     </div>
-                    <div class="submitForm">
-                        <input 
-                            type="submit" 
-                            value="Save" 
-                            class="submitButton"
-                        >
+                    <div class="formBottom">
+                        <div class="submitForm">
+                            <input 
+                                type="submit" 
+                                value="Save" 
+                                class="submitButton" >
+                        </div>
                     </div>
                 </form>
 
