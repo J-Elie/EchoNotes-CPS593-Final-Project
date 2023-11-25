@@ -10,3 +10,5 @@ router.get('/', (req, res) => {
     res.status(401).send({message: err.message})
   }
 })
+
+module.exports = router;

@@ -16,19 +16,28 @@
 
 // createTable();
 
+
+
 const notes = [
   {
     note_id: 134,
-    title: "lorem",
-    note:"lorem ipsum",
+    title: "good",
+    note:"afternoon",
     date_edited: "2020-08-31-8-33-15",
     user_id: 534
   },
   {
     note_id: 534,
     title: "lorem",
-    note:"lorem ipsum",
+    note:"ipsum",
     date_edited: "2020-08-31-8-33-15",
+    user_id: 134
+   },
+   {
+    note_id: 12,
+    title: "hello",
+    note:"world",
+    date_edited: "2023-11-15-8-33-15",
     user_id: 134
    }
 ]

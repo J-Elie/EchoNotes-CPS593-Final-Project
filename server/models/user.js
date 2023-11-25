@@ -30,7 +30,15 @@ const users = [
     lastName: "smith",
     email: "smith@gmail.com",
     password: "badpassword"  
+   },
+   {
+    user_id: 789,
+    firstName: "colin",
+    lastName: "Miller",
+    email: "Miller@gmail.com",
+    password: "123abc"  
    }
+
 ]
 
 // CRUD functions
