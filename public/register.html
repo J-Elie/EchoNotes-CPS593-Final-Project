@@ -19,6 +19,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100;0,8..144,200;0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;0,8..144,800;0,8..144,900;1,8..144,100;1,8..144,200;1,8..144,300;1,8..144,400;1,8..144,500;1,8..144,600;1,8..144,700;1,8..144,800;1,8..144,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/3e6de267d4.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -44,69 +48,73 @@
                     <h2 class="formHeading">Register</h2>
                     <!-- First name label and input -->
                     <div class="input">
-                        <label for="fname">First Name:</label>
+                        <label for="fname" id="fnameLabel">First Name:</label>
                         <br>
-                        <input 
-                            type="text" 
-                            name="fname" 
-                            id="fname" 
-                            required>
+                        <input type="text" name="fname" id="fname" onkeyup="validateFname()">
+                        <span class="successIcon hidden" id="fnameSuccess"><i
+                                class="fa-solid fa-circle-check"></i></span>
+                        <span class="errorIcon hidden" id="fnameError"><i
+                                class="fa-solid fa-circle-exclamation"></i></span>
+                        <span class="errorMSG" id="fnameErrorMSG"></span>
                     </div>
 
                     <!-- Last name label and input -->
                     <div class="input">
-                        <label for="lname">Last Name:</label>
+                        <label for="lname" id="lnameLabel">Last Name:</label>
                         <br>
-                        <input 
-                            type="text" 
-                            name="lname" 
-                            id="lname" 
-                            required>
+                        <input type="text" name="lname" id="lname" onkeyup="validateLname()">
+                        <span class="successIcon hidden" id="lnameSuccess"><i
+                                class="fa-solid fa-circle-check"></i></span>
+                        <span class="errorIcon hidden" id="lnameError"><i
+                                class="fa-solid fa-circle-exclamation"></i></span>
+                        <span class="errorMSG" id="lnameErrorMSG"></span>
                     </div>
+
                     <!-- Email label and input -->
                     <div class="input">
-                        <label for="email">Email:</label>
+                        <label for="email" id="emailLabel">Email:</label>
                         <br>
-                        <input 
-                            type="email" 
-                            name="email" 
-                            id="email" 
-                            required>
+                        <input type="email" name="email" id="email" onkeyup="validateEmail()">
+                        <span class="successIcon hidden" id="emailSuccess"><i
+                                class="fa-solid fa-circle-check"></i></span>
+                        <span class="errorIcon hidden" id="emailError"><i
+                                class="fa-solid fa-circle-exclamation"></i></span>
+                        <span class="errorMSG" id="emailErrorMSG"></span>
                     </div>
+
                     <!-- Password label and input -->
                     <div class="input">
-                        <label for="password">Password:</label>
+                        <label for="password" id="passwordLabel">Password:</label>
                         <br>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            id="password" 
-                            required>
+                        <input type="password" name="password" id="password" onkeyup="validatePassword()">
+                        <span class="successIcon hidden" id="passwordSuccess"><i
+                                class="fa-solid fa-circle-check"></i></span>
+                        <span class="errorIcon hidden" id="passwordError"><i
+                                class="fa-solid fa-circle-exclamation"></i></span>
+                        <span class="errorMSG" id="passwordErrorMSG"></span>
                     </div>
+
                     <!-- confirm password label and input -->
                     <div class="input">
-                        <label for="confirmPassword">Confirm Password:</label>
+                        <label for="confirmPassword" id="confirmPasswordLabel">Confirm Password:</label>
                         <br>
-                        <input 
-                            type="password" 
-                            name="confirmPassword" 
-                            id="confirmPassword" 
-                            required 
-                            onkeyup="validatePassword()">
-                        <span id="passwordAlert"></span>
+                        <input type="password" name="confirmPassword" id="confirmPassword"
+                            onkeyup="validateConfirmPassword()">
+                        <span class="successIcon hidden" id="confirmPasswordSuccess"><i
+                                class="fa-solid fa-circle-check"></i></span>
+                        <span class="errorIcon hidden" id="confirmPasswordError"><i
+                                class="fa-solid fa-circle-exclamation"></i></span>
+                        <span class="errorMSG" id="confirmPasswordErrorMSG"></span>
                     </div>
+                    
                     <!--submit button and link to other form -->
                     <div class="formBottom">
-                    <div class="submitForm">
-                        <input 
-                            type="submit" 
-                            value="Submit" 
-                            class="submitButton" 
-                            id="submitButton">
-                    </div>
-                    <div class="haveAcc">
-                        <a href="login.html" class="haveAccLink">Already have an account?</a>
-                    </div>
+                        <div class="submitForm">
+                            <input type="submit" value="Submit" class="submitButton" id="submitButton">
+                        </div>
+                        <div class="haveAcc">
+                            <a href="login.html" class="haveAccLink">Already have an account?</a>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -116,4 +124,5 @@
     </footer>
     <script src="./Scripts/user.js"></script>
 </body>
+
 </html>

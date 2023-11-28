@@ -44,29 +44,32 @@
                     <h2 class="formHeading">Login</h2>
                     <!-- Email label and input -->
                     <div class="input">
-                        <label for="email">Email:</label>
+                        <label for="email" id="emailLabel">Email:</label>
                         <br>
-                        <input 
-                            type="email" 
-                            name="email" 
-                            id="email">
+                        <input type="email" name="email" id="email" onkeyup="validateEmailLogin()">
+                        <span class="successIcon hidden" id="emailSuccess"><i
+                                class="fa-solid fa-circle-check"></i></span>
+                        <span class="errorIcon hidden" id="emailError"><i
+                                class="fa-solid fa-circle-exclamation"></i></span>
+                        <span class="errorMSG" id="emailErrorMSG"></span>
                     </div>
+
                     <!-- Password label and input -->
                     <div class="input">
-                        <label for="pw">Password:</label>
+                        <label for="password" id="passwordLabel">Password:</label>
                         <br>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            id="password">
+                        <input type="password" name="password" id="password" onkeyup="validatePasswordLogin()">
+                        <span class="successIcon hidden" id="passwordSuccess"><i
+                                class="fa-solid fa-circle-check"></i></span>
+                        <span class="errorIcon hidden" id="passwordError"><i
+                                class="fa-solid fa-circle-exclamation"></i></span>
+                        <span class="errorMSG" id="passwordErrorMSG"></span>
                     </div>
+
                     <!--submit button and link to other form -->
                     <div class="formBottom">
                         <div class="submitForm">
-                            <input 
-                                type="submit" 
-                                value="Submit" 
-                                class="submitButton">
+                            <input type="submit" value="Submit" class="submitButton">
                         </div>
                         <div class="haveAcc">
                             <a href="register.html" class="haveAccLink">Don't have an account yet?</a>
