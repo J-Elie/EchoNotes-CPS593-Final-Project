@@ -302,10 +302,40 @@ function login(e) {
     };
     console.log(user.email, user.password);
     console.log("valid form");
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // fetchData('/users/login', user, "POST")
+    // .then(data =>{
+    //   if(!data.message){
+    //     window.location.href = "note.html"
+    //   }
+    // })
+    // .catch(err =>{
+    //   let errorSection = document.querySelector("#login-form .error")
+    //   errorSection.innerText=err.message
+    // })
+   // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   } else {
     console.log("error invalid form");
   }
 }
+// async function fetchData(route = '', data = {}, methodType) {
+//   const response = await fetch(`http://localhost:3000${route}`,{
+//     method: methodType,
+//     headers: {
+//       'Contest-Type': 'application/json'
+//     },
+//     body: JSON.stringify(data)
+//   });
+//   if (response.ok) {
+//     return await response.json();
+//   }else{
+//     throw await response.json();
+//   }
+// }
+
+
+
+
 /**
  * validateLoginForm
  * @returns true if all login form fields are properly formatted
