@@ -18,7 +18,6 @@ TOC
 2. Input Validation
 ***************/
 
-
 /*-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 0. Register Form and Register Validation
 -#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#*/
@@ -32,8 +31,8 @@ function register(e) {
   e.preventDefault();
   if (validateRegisterForm()) {
     let user = {
-      fname: document.getElementById("fname").value,
-      lname: document.getElementById("lname").value,
+      first_name: document.getElementById("fname").value,
+      last_name: document.getElementById("lname").value,
       email: document.getElementById("email").value,
       password: document.getElementById("password").value,
       confirmPassword: document.getElementById("confirmPassword").value,
@@ -46,6 +45,17 @@ function register(e) {
       user.confirmPassword
     );
     console.log("valid form");
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    fetchData("/users/register", user, "POST")
+      .then((data) => {
+        setCurrentUser(data);
+        window.location.href = "home.html";
+      })
+      .catch((err) => {
+        document.querySelector(".registerForm #backendRegisterErrorMSG").innerHTML =`<br>${err.message}`
+        document.getElementById("pswd").value = "";
+      });
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   } else {
     console.log("error invalid form");
   }
@@ -283,7 +293,6 @@ function validateConfirmPasswordRegister() {
   }
 }
 
-
 /*-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 1. Login Form Login Validation
 -#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#*/
@@ -302,39 +311,25 @@ function login(e) {
     };
     console.log(user.email, user.password);
     console.log("valid form");
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    // fetchData('/users/login', user, "POST")
-    // .then(data =>{
-    //   if(!data.message){
-    //     window.location.href = "note.html"
-    //   }
-    // })
-    // .catch(err =>{
-    //   let errorSection = document.querySelector("#login-form .error")
-    //   errorSection.innerText=err.message
-    // })
-   // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    fetchData("/users/login", user, "POST")
+      .then((data) => {
+        if (!data.message) {
+          window.location.href = "note.html";
+        }
+      })
+      .catch((err) => {
+        let errorSection = document.querySelector(
+          ".loginForm #backendLoginErrorMSG"
+        );
+        errorSection.innerHTML = `<br>${err.message}`;
+        // document.getElementById("email").value = "";
+        // document.getElementById("password").value = "";
+      });
   } else {
     console.log("error invalid form");
   }
 }
-// async function fetchData(route = '', data = {}, methodType) {
-//   const response = await fetch(`http://localhost:3000${route}`,{
-//     method: methodType,
-//     headers: {
-//       'Contest-Type': 'application/json'
-//     },
-//     body: JSON.stringify(data)
-//   });
-//   if (response.ok) {
-//     return await response.json();
-//   }else{
-//     throw await response.json();
-//   }
-// }
-
-
-
 
 /**
  * validateLoginForm
@@ -408,7 +403,6 @@ function validateEmailLogin() {
   }
 }
 
-
 /*-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 2. Input Validation
 -#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#*/
@@ -423,4 +417,38 @@ function validateInput(show, hide, msgContainer, msg) {
   hide.classList.add("hidden");
   show.classList.remove("hidden");
   msgContainer.innerHTML = msg;
+}
+
+
+
+
+
+
+ function setCurrentUser(user) {
+  localStorage.setItem("user", JSON.stringify(user));
+}
+
+ function getCurrentUser() {
+  return JSON.parse(localStorage.getItem("user"));
+}
+
+ function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "login.html";
+}
+
+// Fetch method implementation:
+ async function fetchData(route = "", data = {}, methodType) {
+  const response = await fetch(`http://localhost:3000${route}`, {
+    method: methodType, // *POST, PUT, DELETE, etc.
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  if (response.ok) {
+    return await response.json();
+  } else {
+    throw await response.json();
+  }
 }

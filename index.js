@@ -14,6 +14,9 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.use(express.static(__dirname + "/public"))
+app.get('/', (req, res) => res.sendFile(path.join(__dirname + "/public/home.html")))
+
 app.use('/users', userRoutes)
 app.use('/notes', userNotes)
 

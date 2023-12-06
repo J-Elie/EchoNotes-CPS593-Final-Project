@@ -320,11 +320,13 @@ input[type=password]:focus {
   8. Home Page
 ------------------------------------------------*/
 .homeBody {
-    background-image: url('/public/Images/home.png');
+    
+    background-color: var(--darkTeal);
+    
     background-size: cover;
     background-position: center;
     background-size: cover;
-    background-color: var(--white);
+    background-image: url('../Images/home.png');
 }
 
 .WelcomeContainer {
