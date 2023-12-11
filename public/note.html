@@ -23,18 +23,7 @@
 
 <body>
     <header>
-        <nav class="nav">
-            <a href="home.html" class="logoNavLink">
-                <img src="Images/Green Logo With Title.png" alt="EchoNotes logo" class="logoHomeImg">
-            </a>
-            <ul>
-                <li><a href="home.html" class="navLink">Home</a></li>
-                <li><a href="register.html" class="navLink">Register</a></li>
-                <li><a href="login.html" class="navLink">Login</a></li>
-                <li><a href="note.html" class="navLink currentPage">Note</a></li>
-            </ul>
-            <div class="navSpacer"></div>
-        </nav>
+        <nav class="nav"></nav>
     </header>
     <main class="main">
         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
@@ -64,8 +53,7 @@
                             type="text" 
                             name="title" 
                             id="title" 
-                            placeholder="Enter title"
-                            onkeyup="updateTitle()">
+                            placeholder="New Note">
                     </div>
                     <div class="textareaContainer">
                         <textarea 
@@ -91,7 +79,9 @@
     <footer>
 
     </footer>
-    <script src="./Scripts/note.js"></script>
+    <script type="module" src="./Scripts/note.js"></script>
+    <script type="module" src="./Scripts/user.js"></script>
+    <script type="module" src="./Scripts/main.js"></script>
 </body>
 
 </html>

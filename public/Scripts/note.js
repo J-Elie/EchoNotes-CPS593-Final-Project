@@ -1,28 +1,31 @@
+
+import { fetchData, getCurrentUser} from "./main.js";
+
 let noteForm = document.getElementById("noteForm");
 noteForm?.addEventListener("submit", newNote);
 
 function newNote(e) {
   e.preventDefault();
+  let user = getCurrentUser();
 
-  const date = new Date()
-  let day = date.getDate()
-  let month = date.getMonth() + 1
-  let year = date.getFullYear()
-  let fullDate = `${month}-${day}-${year}`;
-  fullTime = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-  console.log(`${fullDate} || ${fullTime}`);
   let note = {
-    title: document.getElementById("title").value,
-    textarea: document.getElementById("textarea").value,
+    note_title: validateTitle(),
+    note_body: document.getElementById("textarea").value,
+    user_id: user.user_id
   };
-  console.log(`title:${note.title} body:${note.textarea}`);
-
+  console.log(`title:${note.note_title} body:${note.note_body}`);
+  console.log(`users id:${user.user_id} note user id:${note.user_id}`);
   let titleNav = document.getElementById("noteUL");
-  titleNav.innerHTML += `<li class="noteLI">${note.title}</li>`;
-  // document.getElementById('titles').value=""
-}
+  titleNav.innerHTML += `<li class="noteLI">${note.note_title}</li>`;
+  let sideNavLi = document.getElementsByClassName('noteLI')
+  sideNavLi.classList.add(`u${note.note_id}`);
+  console.log(`this should be the note id ${note.note_id}`)
 
-function updateTitle() {
+  fetchData("/notes/addNote", note, "POST")
+}
+let noteTitle = document.getElementById('title')
+noteTitle?.addEventListener("keyup", updateTitle);
+export function updateTitle() {
   var title = document.getElementById("title").value;
   let heading = document.getElementById("titleHeading");
   if (title != "") {
@@ -30,14 +33,15 @@ function updateTitle() {
   } else {
     heading.innerHTML = `New Note`;
     title = "new Note"
-    console.log(title)
   }
 }
-function validateNote() {
+
+export function validateTitle() {
   var title = document.getElementById("title").value;
   if (title == ""){
-    title = "new Note"
+    title = "New Note"
   }
+  return title
 }
 
 // function openNav() {
@@ -47,3 +51,11 @@ function validateNote() {
 // }
 
     
+
+
+// function readNotes(e) {
+//     fetchData("/getAllNotes", notes, "GET")
+//     console.log(data)
+
+// }
+// readNotes()

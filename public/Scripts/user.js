@@ -17,7 +17,7 @@ TOC
 1. Login Form Login Validation
 2. Input Validation
 ***************/
-
+import { fetchData, setCurrentUser} from "./main.js";
 /*-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 0. Register Form and Register Validation
 -#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#*/
@@ -45,17 +45,17 @@ function register(e) {
       user.confirmPassword
     );
     console.log("valid form");
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     fetchData("/users/register", user, "POST")
       .then((data) => {
         setCurrentUser(data);
-        window.location.href = "home.html";
+        window.location.href = "note.html";
       })
       .catch((err) => {
-        document.querySelector(".registerForm #backendRegisterErrorMSG").innerHTML =`<br>${err.message}`
+        document.querySelector(
+          ".registerForm #backendRegisterErrorMSG"
+        ).innerHTML = `<br>${err.message}`;
         document.getElementById("pswd").value = "";
       });
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   } else {
     console.log("error invalid form");
   }
@@ -82,6 +82,8 @@ function validateRegisterForm() {
     validateConfirmPasswordRegister();
   }
 }
+let FnameRegister = document.getElementById("fname");
+FnameRegister?.addEventListener("keyup", validateFnameRegister);
 /**
  * validateFnameRegister
  * @returns true if first name field is valid
@@ -126,6 +128,8 @@ function validateFnameRegister() {
       return true;
   }
 }
+let LnameRegister = document.getElementById("lname");
+LnameRegister?.addEventListener("keyup", validateLnameRegister);
 /**
  * validateLnameRegister
  * @returns true if last name field is valid
@@ -170,6 +174,8 @@ function validateLnameRegister() {
       return true;
   }
 }
+let emailRegister = document.getElementById("email");
+emailRegister?.addEventListener("keyup", validateEmailRegister);
 /**
  * validateEmailRegister
  * @returns true if email field is valid
@@ -217,6 +223,8 @@ function validateEmailRegister() {
       return true;
   }
 }
+let passwordRegister = document.getElementById("password");
+passwordRegister?.addEventListener("keyup", validatePasswordRegister);
 /**
  * validatePasswordRegister
  * @returns true if the password field is valid
@@ -257,6 +265,8 @@ function validatePasswordRegister() {
       return true;
   }
 }
+let confirmPasswordRegister = document.getElementById("confirmPassword");
+confirmPasswordRegister?.addEventListener("keyup", validateConfirmPasswordRegister);
 /**
  * validateConfirmPasswordRegister
  * @returns true if the confirm password field is valid
@@ -314,17 +324,13 @@ function login(e) {
 
     fetchData("/users/login", user, "POST")
       .then((data) => {
-        if (!data.message) {
-          window.location.href = "note.html";
-        }
+        setCurrentUser(data);
+        window.location.href = "note.html";
       })
       .catch((err) => {
-        let errorSection = document.querySelector(
-          ".loginForm #backendLoginErrorMSG"
-        );
-        errorSection.innerHTML = `<br>${err.message}`;
-        // document.getElementById("email").value = "";
-        // document.getElementById("password").value = "";
+        document.querySelector(".loginForm #backendLoginErrorMSG").innerHTML = `<br>${err.message}`;
+        // document.getElementById("username").value = ""
+        // document.getElementById("pswd").value = ""
       });
   } else {
     console.log("error invalid form");
@@ -417,38 +423,4 @@ function validateInput(show, hide, msgContainer, msg) {
   hide.classList.add("hidden");
   show.classList.remove("hidden");
   msgContainer.innerHTML = msg;
-}
-
-
-
-
-
-
- function setCurrentUser(user) {
-  localStorage.setItem("user", JSON.stringify(user));
-}
-
- function getCurrentUser() {
-  return JSON.parse(localStorage.getItem("user"));
-}
-
- function logout() {
-  localStorage.removeItem("user");
-  window.location.href = "login.html";
-}
-
-// Fetch method implementation:
- async function fetchData(route = "", data = {}, methodType) {
-  const response = await fetch(`http://localhost:3000${route}`, {
-    method: methodType, // *POST, PUT, DELETE, etc.
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  if (response.ok) {
-    return await response.json();
-  } else {
-    throw await response.json();
-  }
 }

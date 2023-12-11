@@ -466,7 +466,100 @@ font-size: 1.25rem;
 /*----------------------------------------------
   10. Profile Page
 ------------------------------------------------*/
+.profileContainer{
+    width: 35vw;
+    background-color: var(--white);
+    overflow: auto;
+    min-width: max-content;
+    border-top-right-radius: 2.3vh;
+    border-bottom-right-radius: 2.3vh;
+    border-radius: 2.3vh;
+    min-height: min-content;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+#profileHeading{
+    text-align: center;
+    padding-bottom: 2vw;
+    padding-top: 1.5vw;
+}
 
+.row{
+    /* width: 30vw; */
+    min-width: min-content;
+    /* background-color: #b62525; */
+    display: flex;
+    flex-direction: row;
+    padding-top: .5vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    font-size: 1.2rem;
+    /* background-color: chartreuse; */
+}
+.label{
+flex: 1;
+padding-right: .5vw;
+white-space: nowrap
+}
+.usersData{
+    flex: 2.5;
+    padding-left: .5vw;
+    border-bottom: 2px solid var(--lightGreen);
+    box-shadow: 0px 1px 0px var(--lightGreen);
+}
+.editUserData{
+    padding-left: .5vw;
+    flex:.5;
+    font-size: 1.2rem;
+}
+.editButton{
+    border: 2px solid var(--darkTeal);
+    background-color: var(--lightGreen);
+    cursor: pointer;
+    border-radius: 2.3vh;
+    padding: 10px;
+    min-width: min-content;
+    color: var(--black);
+    font-weight: 700;
+}
+
+
+.editButton:hover {
+    box-shadow: 1px 1px 0px var(--lightGray);
+    color: var(--trueBlack);
+}
+.basic-form{
+    width: 100%;
+    border: var(--darkTeal);
+    border-style: double;
+    border-radius:2.3vh ;
+    background-color: rgb(206, 234, 214);
+    display: flex;
+    flex-flow: column;
+    /* padding: 2vh; */
+}
+
+.editFormBts{
+   padding-left: 2vh;
+}
+#editEmail{
+    border-radius:2.3vh ;
+}
+
+#editEmailErrorMsg{
+  display: block;
+  /* background-color: blueviolet; */
+  justify-content: center;
+  text-align: center;
+  font-size: 1.2rem;
+  padding-bottom: 2vh;
+}
+.fromContent{
+    width: 100%;
+    display: flex;
+    padding: 2vh;
+}
 /*----------------------------------------------
   11. Footer Styles
 ------------------------------------------------*/

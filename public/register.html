@@ -27,18 +27,7 @@
 
 <body>
     <header>
-        <nav class="nav">
-            <a href="home.html" class="logoNavLink">
-                <img src="Images/Green Logo With Title.png" alt="EchoNotes logo" class="logoHomeImg">
-            </a>
-            <ul>
-                <li><a href="home.html" class="navLink">Home</a></li>
-                <li><a href="register.html" class="navLink currentPage">Register</a></li>
-                <li><a href="login.html" class="navLink">Login</a></li>
-                <li><a href="note.html" class="navLink">Note</a></li>
-            </ul>
-            <div class="navSpacer"></div>
-        </nav>
+        <nav class="nav"></nav>
     </header>
     <main class="main">
         <div class="formContainer">
@@ -50,7 +39,7 @@
                     <div class="input">
                         <label for="fname" id="fnameLabel">First Name:</label>
                         <br>
-                        <input type="text" name="fname" id="fname" onkeyup="validateFnameRegister()">
+                        <input type="text" name="fname" id="fname">
                         <span class="successIcon hidden" id="fnameSuccess"><i
                                 class="fa-solid fa-circle-check"></i></span>
                         <span class="errorIcon hidden" id="fnameError"><i
@@ -62,7 +51,7 @@
                     <div class="input">
                         <label for="lname" id="lnameLabel">Last Name:</label>
                         <br>
-                        <input type="text" name="lname" id="lname" onkeyup="validateLnameRegister()">
+                        <input type="text" name="lname" id="lname">
                         <span class="successIcon hidden" id="lnameSuccess"><i
                                 class="fa-solid fa-circle-check"></i></span>
                         <span class="errorIcon hidden" id="lnameError"><i
@@ -74,7 +63,7 @@
                     <div class="input">
                         <label for="email" id="emailLabel">Email:</label>
                         <br>
-                        <input type="email" name="email" id="email" onkeyup="validateEmailRegister()">
+                        <input type="email" name="email" id="email">
                         <span class="successIcon hidden" id="emailSuccess"><i
                                 class="fa-solid fa-circle-check"></i></span>
                         <span class="errorIcon hidden" id="emailError"><i
@@ -86,7 +75,7 @@
                     <div class="input">
                         <label for="password" id="passwordLabel">Password:</label>
                         <br>
-                        <input type="password" name="password" id="password" onkeyup="validatePasswordRegister()">
+                        <input type="password" name="password" id="password">
                         <span class="successIcon hidden" id="passwordSuccess"><i
                                 class="fa-solid fa-circle-check"></i></span>
                         <span class="errorIcon hidden" id="passwordError"><i
@@ -98,8 +87,7 @@
                     <div class="input">
                         <label for="confirmPassword" id="confirmPasswordLabel">Confirm Password:</label>
                         <br>
-                        <input type="password" name="confirmPassword" id="confirmPassword"
-                            onkeyup="validateConfirmPasswordRegister()">
+                        <input type="password" name="confirmPassword" id="confirmPassword">
                         <span class="successIcon hidden" id="confirmPasswordSuccess"><i
                                 class="fa-solid fa-circle-check"></i></span>
                         <span class="errorIcon hidden" id="confirmPasswordError"><i
@@ -124,7 +112,9 @@
     </main>
     <footer>
     </footer>
-    <script src="./Scripts/user.js"></script>
+    <script type="module" src="./Scripts/user.js"></script>
+    <script type="module" src="./Scripts/main.js"></script>
+    <script src="./Scripts/formValidation.js"></script>
 </body>
 
 </html>
