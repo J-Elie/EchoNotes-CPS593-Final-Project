@@ -20,24 +20,30 @@ async function getAllNotes() {
   let sql = `SELECT * FROM notes;`;
   return await con.query(sql);
 }
-
+async function getUserNotes(user_id) {
+  let sql = `SELECT * FROM notes
+    WHERE user_id=${user_id}
+  `
+  return await con.query(sql)
+}
 // addNote (Create) New note
 async function addNote(note) {
   let sql = `
     INSERT INTO notes(note_title, note_body, user_id)
-    VALUES("${note.note_title}", "${note.note_body}", "${note.user_id}")
+    VALUES("${note.note_title}", "${note.note_body}", ${note.user_id})
   `;
   await con.query(sql);
-  const newNote = await getNote(note.note_id);
-  return newNote[0];
+  // const newNote = await getNote(note.note_id);
+  const updatedNotes = await getUserNotes(note.user_id);
+  return updatedNotes;
 }
 
 // viewNote (read) an existing note
 async function viewNote(note) {
+  console.log(`im in the vew note function`)
   let noteResult = await getNote(note.note_id);
   if (!noteResult[0]) throw Error("no note is associated with id");
   // if(noteResult[0].user_id != note.user_id) throw Error("you have no notes with that title")
-
   return noteResult[0];
 }
 
@@ -104,4 +110,4 @@ async function getNote(note_id) {
 // }
 
 // export functions so can utilize them in another file in application
-module.exports = { getAllNotes, addNote, viewNote, editNote, deleteNote };
+module.exports = { getAllNotes, addNote, viewNote, editNote, deleteNote, getUserNotes};

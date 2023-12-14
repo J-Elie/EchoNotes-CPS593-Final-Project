@@ -80,9 +80,9 @@ function editAccount(e) {
         //this is not working 
         removeCurrentUser();
         setCurrentUser(data);
-        let user = getCurrentUser();
+        user = getCurrentUser();
         console.log(user)
-        // window.location.href = "profile.html"
+        window.location.href = "profile.html"
       }
     })
  
@@ -97,7 +97,7 @@ function editAccount(e) {
 
 function deleteAccount() {
   if(confirm('Are you sure you want to delete your account???')) {
-    fetchData('/users/delete', {user_id: user.user_id}, "DELETE")
+    fetchData('/users/deleteUser', {user_id: user.user_id}, "DELETE")
     .then((data) => {
       if(!data.message) {
         console.log(data.success)

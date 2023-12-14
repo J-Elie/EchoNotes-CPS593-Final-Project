@@ -67,7 +67,7 @@ async function editUserEmail(user) {
   `
 
   await con.query(sql)
-  userResult = await getUser(user)
+  userResult = await getUser(user.email)
   return userResult[0]
 }
 
@@ -87,6 +87,14 @@ async function getUser(email) {
   let sql = `
     SELECT * FROM users 
     WHERE email = "${email}" 
+  `
+  return await con.query(sql)
+}
+
+async function getUserById(id) {
+  let sql = `
+    SELECT * FROM users 
+    WHERE user_id = ${id} 
   `
   return await con.query(sql)
 }
@@ -119,6 +127,6 @@ async function getUser(email) {
 
 // let getUsers = () => users;
 
-module.exports = {login, register, getAllUsers,deleteUser,editUserEmail}
+module.exports = {login, register, getAllUsers,deleteUser,editUserEmail, getUserById}
 
 

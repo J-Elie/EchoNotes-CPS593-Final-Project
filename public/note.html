@@ -30,7 +30,7 @@
         <div class="noteNaveContainer">
             <nav class="noteNav">
                 <div class="noteButtonContainer">
-                    <button class="newNoteButton submitButton">New Note</button>
+                    <button class="newNoteButton submitButton" id="noteNavNewNoteBtn">New Note</button>
                 </div>
                 <!-- <div class="noteListContainer"> -->
                     <ul class="noteUL" id="noteUL">
@@ -43,7 +43,7 @@
         </div>
         <!-- <button class="navButton" onclick="openNav()">☰</button>   -->
         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-        <div class="noteContainer">
+        <div class="noteContainer" id="noteContainer">
             <div>
                 <form class="noteForm" id="noteForm">
                     <h2 class="newNoteHeading" id="titleHeading">New note</h2>
@@ -64,11 +64,12 @@
                             placeholder="Start writing your note here..."></textarea>
                     </div>
                     <div class="formBottom">
-                        <div class="submitForm">
+                        <div class="submitForm" id="submitNoteForm">
                             <input 
                                 type="submit" 
                                 value="Save" 
-                                class="submitButton" >
+                                class="submitButton" 
+                                id="submitNoteButton">
                         </div>
                     </div>
                 </form>
